@@ -46,9 +46,9 @@ module hw4_5b
     wire w_one, w_two, w_three, w_four;
 
     // Level One
-    not not_one(a_prime, a);    // a_prime = A'
-    not not_two(b_prime, b);    // b_prime = B'
-    not not_three(d_prime, d);  // d_prime = D'
+    not not_one(a_prime, a);            // a_prime = A'
+    not not_two(b_prime, b);            // b_prime = B'
+    not not_three(d_prime, d);          // d_prime = D'
 
     // Level Two
     and and_one(w_one, a, b_prime);     // w_one   = A * b_prime
