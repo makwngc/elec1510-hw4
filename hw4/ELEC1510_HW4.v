@@ -76,13 +76,6 @@ module hw4_6a
     output f
 );
 
-    wire w1, w2, w3, w4;
-
-    and g1(w1, c, d);  // w1 = CD
-    or g2(w2, w1, b);  // w2 = w1 + B
-    and g3(w3, a, w2); // w3 = w2 * A
-    and g4(w4, b, !c); // w4 = BC'
-    or g5(f, w4, w3);  // f  = w4 + w3
 
 endmodule
 
@@ -97,13 +90,6 @@ module hw4_6b
     output f
 );
 
-    wire w1, w2, w3, w4;
-
-    and g1(w1, a, !b); // w1 = AB'
-    and g2(w2, !a, b); // w2 = A'B
-    or g3(w3, w1, w2); // w3 = w1 + w2
-    or g4(w4, c, !d);  // w4 = C + D'
-    and g5(f, w3, w4); // f  = w3 * w4
 
 endmodule
 
