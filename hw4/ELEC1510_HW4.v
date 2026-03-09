@@ -74,6 +74,34 @@ module hw4_6a
     output f
 );
 
+    wire b_prime, c_prime;
+    wire w_one, w_two, w_three, w_four, w_five, w_six, w_seven, w_eight;
+
+    // Level One
+    not not_one(b_prime, b);             // b_prime = B'
+    not not_two(c_prime, c);             // c_prime = C'
+
+    // Level Two
+    nand nand_one(w_one, c, d);          // w_one = (CD)'
+    nand nand_two(w_two, b, c_prime);    // w_two = (B * c_prime)'
+
+    // Level Three
+    not not_three(w_three, w_one);       // w_three = (w_one)'
+    not not_four(w_four, b_prime);       // w_four = (b_prime)'
+
+    // Level Four
+    or or_one(w_five, w_three, w_four);  // w_five = w_three + w_four
+
+    // Level Five
+    nand nand_three(w_six, w_five, a);   // w_six = (w_five * A)'
+
+    // Level Six
+    not not_five(w_seven, w_six);        // w_seven = (w_six)'
+    not not_six(w_eight, w_two);         // w_eight = (w_two)'
+
+    // Level Seven (Output)
+    or or_two(f, w_seven, w_eight);      // f = w_seven + w_eight
+
 endmodule
 
 // ==================================================
