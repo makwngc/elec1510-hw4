@@ -36,13 +36,24 @@ module hw4_5b
     output f
 );
 
-    wire w1, w2, w3, w4;
+    wire a_prime, b_prime, d_prime;
+    wire w_one, w_two, w_three, w_four;
 
-    and g1(w1, a, !b); // w1 = AB'
-    and g2(w2, !a, b); // w2 = A'B
-    or g3(w3, w1, w2); // w3 = w1 + w2
-    or g4(w4, c, !d);  // w4 = C + D'
-    and g5(f, w3, w4); // f  = w3 * w4
+    // Level One
+    not not_one(a_prime, a);    // a_prime = A'
+    not not_two(b_prime, b);    // b_prime = B'
+    not not_three(d_prime, d);  // d_prime = D'
+
+    // Level Two
+    and and_one(w_one, a, b_prime);     // w_one   = A * b_prime
+    and and_two(w_two, a_prime, b);     // w_two   = a_prime * B
+    or or_one(w_three, c, d_prime);     // w_three = C + d_prime
+
+    // Level Three
+    or or_two(w_four, w_one, w_two);    // w_four = w_one + w_two
+
+    // Level Four (Output)
+    and and_three(f, w_four, w_three);  // f = w_four + w_three
 
 endmodule
 
