@@ -17,12 +17,18 @@ module hw4_5a
     wire c_prime;
     wire w_one, w_two, w_three, w_four;
 
-    not not_one(c_prime, c);            // c_prime = C'
-    and and_one(w_one, c, d);           // w_one   = CD
-    or or_one(w_two, w_one, b);         // w_two   = w_one + B
-    and and_two(w_three, w_two, a);     // w_three = w_two * A
-    and and_three(w_four, b, c_prime);  // w_four  = B * c_prime
-    or or_two(f, w_three, w_four);      // f       = w_three + w_four
+    // Level One
+    and and_one(wire_one, c, d);              // wire_one = CD
+    and and_two(wire_two, b, c_prime);        // wire_two = B * c_prime
+
+    // Level Two
+    or or_one(wire_three, wire_one, b);       // wire_three = wire_one + b
+
+    // Level Three
+    and and_three(wire_four, wire_three, a);  // wire_four = wire_three * A
+
+    // Level Four (Output)
+    or or_two(f, wire_four, wire_two);        // f = wire_four + wire_two
 
 endmodule
 
