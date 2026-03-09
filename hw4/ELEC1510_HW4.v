@@ -14,14 +14,15 @@ module hw4_5a
     output f
 );
     
-    wire w1, w2, w3, w4, w5;
+    wire c_prime;
+    wire w_one, w_two, w_three, w_four;
 
-    and g1(w1, c, d);  // w1 = CD
-    or g2(w2, w1, b);  // w2 = w1 + B 
-    and g3(w3, w2, a); // w3 = w2 * A
-    not g4(w4, c);     // w4 = C'
-    and g5(w5, b, w4); // w5 = B * w4
-    or g6(f, w3, w5);  // f  = w3 + w5
+    not not_one(c_prime, c);            // c_prime = C'
+    and and_one(w_one, c, d);           // w_one   = CD
+    or or_one(w_two, w_one, b);         // w_two   = w_one + B
+    and and_two(w_three, w_two, a);     // w_three = w_two * A
+    and and_three(w_four, b, c_prime);  // w_four  = B * c_prime
+    or or_two(f, w_three, w_four);      // f       = w_three + w_four
 
 endmodule
 
