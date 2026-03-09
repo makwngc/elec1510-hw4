@@ -150,7 +150,9 @@ endmodule
 // ==================================================
 // Module:    hw4_8
 // Functions: A(x,y,z) = xy + yz
-// Note:      Just a fun "challenge".
+//            B(x,y,z) = xy' + x'yz' + y'z
+//            C(x,y,z) = xz + x'z'
+// Note:      Just for fun.
 // ==================================================
 module hw4_8
 (
@@ -158,6 +160,8 @@ module hw4_8
     output a, b, c
 );
     
-    assign a = (x & y) | (y & z); // a = xy + yz
+    assign a = (x & y) | (y & z);                    // A(x,y,z) = xy + yz
+    assign b = (x & ~y) | (~x & y & ~z) | (~y & z);  // B(x,y,z) = xy' + x'yz' + y'z
+    assign c = (x & z) | (~x & ~z);                  // C(x,y,z) = xz + x'z'
 
 endmodule
