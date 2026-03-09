@@ -19,8 +19,9 @@ module hw4_5a
     and g1(w1, c, d);  // w1 = CD
     or g2(w2, w1, b);  // w2 = w1 + B 
     and g3(w3, w2, a); // w3 = w2 * A
-    and g4(w4, b, !c); // w4 = BC'
-    or g5(f, w3, w4);  // f  = w3 + w4
+    not g4(w4, c);     // w4 = C'
+    and g5(w5, b, w4); // w5 = B * w4
+    or g6(f, w3, w5);  // f  = w3 + w5
 
 endmodule
 
