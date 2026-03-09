@@ -65,10 +65,8 @@ endmodule
 
 // ==================================================
 // Module:   hw4_6a
-// Function: F(A,B,C,D) = A(CD + B) + BC'
-// Note:     Removed some redundant NOT gates. I
-//           simply could not bring myself to write
-//           logic like that.
+// Function: F(A,B,C,D) = 
+//           (((((CD)')' + (B')')A)')' + ((BC')')'
 // ==================================================
 module hw4_6a
 (
@@ -76,20 +74,18 @@ module hw4_6a
     output f
 );
 
-
 endmodule
 
 // ==================================================
 // Module:   hw4_6b
-// Function: F(A,B,C,D) = (AB' + A'B)(C + D')
-// Note:     Same note as 'hw4_6a'.
+// Function: F(A,B,C,D) = 
+//           (((((AB')')' + ((A'B)')')((C')' + (D)'))')'
 // ==================================================
 module hw4_6b
 (
     input a, b, c, d,
     output f
 );
-
 
 endmodule
 
