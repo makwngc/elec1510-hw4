@@ -189,7 +189,9 @@ module hw4_10
     // C(w,x,y,z) = wxy + xyz + w'x'y + w'xy' + wx'y'
     assign c = (w & x & y) | (x & y & z) | (~w & ~x & y) | (~w & x & ~y) | (w & ~x & ~y);
 
-    // 
-    assign d = 
+    // D(w,x,y,z) = w'xy'z' + wx'y'z' + w'x'y'z + wxy'z + w'xyz + wx'yz + w'x'yz' + wxyz'
+    assign d = (~w & x & ~y & ~z) | (w & ~x & ~y & ~z) | (~w & ~x & ~y & z)
+               | (w & x & ~y & z) | (~w & x & y & z) | (w & ~x & y & z)
+               | (~w & ~x & y & ~z) | (w & x & y & ~z);
 
 endmodule
