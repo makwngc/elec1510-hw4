@@ -165,3 +165,33 @@ module hw4_8
     assign c = (x & z) | (~x & ~z);                  // C(x,y,z) = xz + x'z'
 
 endmodule
+
+// ==================================================
+// Module:    hw4_9
+// Functions: A(w,x,y,z) = w
+//            B(w,x,y,z) = w'x + wx'
+//            C(w,x,y,z) = wxy + xyz + w'x'y + w'xy'
+//                         + wx'y'
+//            D(w,x,y,z) = w'xy'z' + wx'y'z'
+//                         + w'x'y'z + wxy'z + w'xyz
+//                         + wx'yz + w'x'yz' + wxyz'
+// Note:      Just for fun.
+// ==================================================
+module hw4_9
+(
+    input w, x, y, z,
+    output a, b, c, d
+);
+
+    assign a = w;                    // A(w,x,y,z) = w
+    assign b = (~w & x) | (w & ~x);  // B(w,x,y,z) = w'x + wx'
+
+    // C(w,x,y,z) = wxy + xyz + w'x'y + w'xy' + wx'y'
+    assign c = (w & x & y) | (x & y & z) | (~w & ~x & y) | (~w & x & ~y) | (w & ~x & ~y);
+
+    // D(w,x,y,z) = w'xy'z' + wx'y'z' + w'x'y'z + wxy'z + w'xyz + wx'yz + w'x'yz' + wxyz'
+    assign d = (~w & x & ~y & ~z) | (w & ~x & ~y & ~z) | (~w & ~x & ~y & z)
+               | (w & x & ~y & z) | (~w & x & y & z) | (w & ~x & y & z)
+               | (~w & ~x & y & ~z) | (w & x & y & ~z);
+
+endmodule
