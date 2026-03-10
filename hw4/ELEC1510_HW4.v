@@ -165,3 +165,15 @@ module hw4_8
     assign c = (x & z) | (~x & ~z);                  // C(x,y,z) = xz + x'z'
 
 endmodule
+
+// ==================================================
+// Module:    hw4_10
+// Functions: A(w,x,y,z) = w
+//            B(w,x,y,z) = w'x + wx'
+//            C(w,x,y,z) = wxy + xyz + w'x'y + w'xy'
+//                         + wx'y'
+//            D(w,x,y,z) = w'xy'z' + wx'y'z'
+//                         + w'x'y'z + wxy'z + w'xyz
+//                         + wx'yz + w'x'yz' + wxyz'
+// Note:      Just for fun.
+// ==================================================
