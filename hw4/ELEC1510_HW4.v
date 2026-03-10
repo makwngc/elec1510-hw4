@@ -183,8 +183,13 @@ module hw4_10
     output a, b, c, d
 );
 
-    assign a = w;
-    assign b = (~w & x) | (w & ~x);
+    assign a = w;                    // A(w,x,y,z) = w
+    assign b = (~w & x) | (w & ~x);  // B(w,x,y,z) = w'x + wx'
+
+    // C(w,x,y,z) = wxy + xyz + w'x'y + w'xy' + wx'y'
     assign c = (w & x & y) | (x & y & z) | (~w & ~x & y) | (~w & x & ~y) | (w & ~x & ~y);
+
+    // 
+    assign d = 
 
 endmodule
