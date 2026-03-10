@@ -167,7 +167,7 @@ module hw4_8
 endmodule
 
 // ==================================================
-// Module:    hw4_10
+// Module:    hw4_9
 // Functions: A(w,x,y,z) = w
 //            B(w,x,y,z) = w'x + wx'
 //            C(w,x,y,z) = wxy + xyz + w'x'y + w'xy'
@@ -177,7 +177,7 @@ endmodule
 //                         + wx'yz + w'x'yz' + wxyz'
 // Note:      Just for fun.
 // ==================================================
-module hw4_10
+module hw4_9
 (
     input w, x, y, z,
     output a, b, c, d
