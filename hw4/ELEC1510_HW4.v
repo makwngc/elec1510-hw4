@@ -177,3 +177,14 @@ endmodule
 //                         + wx'yz + w'x'yz' + wxyz'
 // Note:      Just for fun.
 // ==================================================
+module hw4_10
+(
+    input w, x, y, z,
+    output a, b, c, d
+);
+
+    assign a = w;
+    assign b = (~w & x) | (w & ~x);
+    assign c = (w & x & y) | (x & y & z) | (~w & ~x & y) | (~w & x & ~y) | (w & ~x & ~y);
+
+endmodule
